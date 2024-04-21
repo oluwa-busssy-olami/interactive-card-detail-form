@@ -78,3 +78,31 @@ cardNumberInput.addEventListener("input", validNumber);
 cardMonthInput.addEventListener("input", validMonth);
 cardYearInput.addEventListener("input", validYear);
 cardCvcInput.addEventListener("input", validCvc);
+
+//button click addventlistener
+const submitButton = document.querySelector(".btn");
+
+function submitBtn() {
+  if (
+    cardNameInput.value.trim() === "" ||
+    cardNumberInput.value.trim() === "" ||
+    cardMonthInput.value.trim() === "" ||
+    cardYearInput.value.trim() === "" ||
+    cardCvcInput.value.trim() === ""
+  ) {
+    errorMessages.cardName.textContent = "can't be blank";
+    cardNameInput.style.border = "1px solid red";
+    errorMessages.cardNumber.textContent = "can't be blank";
+    cardNumberInput.style.border = "1px solid red";
+    errorMessages.cardMonth.textContent = "can't be blank";
+    cardYearInput.style.border = "1px solid red";
+    errorMessages.cardYear.textContent = "can't be blank";
+    cardYearInput.style.border = "1px solid red";
+    errorMessages.cardCvc.textContent = "3 digit";
+    cardCvcInput.style.border = "1px solid red";
+    errorMessages.cardMonth.textContent = "can't be blank";
+    cardYearInput.style.border = "1px solid red";
+  }
+}
+
+submitButton.addEventListener("click", submitBtn);
