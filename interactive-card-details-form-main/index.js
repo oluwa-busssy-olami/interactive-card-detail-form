@@ -1,108 +1,161 @@
-// Select input elements and error message containers
-const cardNameInput = document.querySelector("#card-name");
-const cardNumberInput = document.querySelector("#card-number");
-const cardMonthInput = document.querySelector("#card-mm");
-const cardYearInput = document.querySelector("#card-yy");
-const cardCvcInput = document.querySelector("#card-cvc");
+const card_number = document.querySelector("#card-number");
+const card_mm = document.querySelector("#card-mm");
+const card_yy = document.querySelector("#card-yy");
+const card_cvc = document.querySelector("#card-cvc");
+const card_name = document.querySelector("#card-name");
 
-const errorMessages = {
-  cardName: document.querySelector(".errorMessage-name"),
-  cardNumber: document.querySelector(".errorMessage-number"),
-  cardMonth: document.querySelector(".errorMessage-month"),
-  cardYear: document.querySelector(".errorMessage-year"),
-  cardCvc: document.querySelector(".errorMessage-cvc"),
-};
+//Select The elemnt with the Error Message
+const errorMessage = document.querySelector(".errorMessage-name");
+const errorMessage_number = document.querySelector(".errorMessage-number");
+const errorMessage_year = document.querySelector(".errorMessage-year");
+const errorMessage_month = document.querySelector(".errorMessage-month");
+const errorMessage_cvc = document.querySelector(".errorMessage-cvc");
 
-// Function for the cardName input
-function validName() {
-  let letters = /^[A-Za-z]+$/;
-  if (cardNameInput.value.trim() === "") {
-    errorMessages.cardName.textContent = "can't be blank";
-    cardNameInput.style.border = "1px solid red";
-  } else if (cardNameInput.value.match(letters)) {
-    errorMessages.cardName.textContent = "";
-  } else {
-    errorMessages.cardName.textContent = "enter a valid username name";
-    cardNameInput.style.border = "1px solid red";
-  }
+//function for the cardname that with be pass in the event listener
+function cardName() {
+    if (card_name.value.trim() === "") {
+        errorMessage.textContent = "can't be blank";
+        card_name.style.border = "1px solid red";
+    } else if (/^\d+$/.test(card_name.value)) {
+        errorMessage.textContent = "Enter a valid username";
+        card_name.style.border = "1px solid red";
+    } else {
+        errorMessage.textContent = "";
+        card_name.style.border = "1px solid rgb(45, 14, 45)"; // Reset border to default
+    }
 }
 
-//passing a function for the card Number input
+//function for the cardnumber that with be pass in the event listener
+function cardNumber() {
+    const inputValue = card_number.value.trim();
 
-function validNumber() {
-  if (cardNumberInput.value.trim() === "") {
-    errorMessages.cardNumber.textContent = "can't be blank";
-    cardNumberInput.style.border = "1px solid red";
-  }
+    if (inputValue === "") {
+        errorMessage_number.textContent = "Card number is required";
+        card_number.style.border = "1px solid red";
+    } else if (!/^\d+$/.test(inputValue)) {
+        errorMessage_number.textContent = "valid card number";
+        card_number.style.border = "1px solid red";
+    } else if (inputValue.length !== 16) {
+        errorMessage_number.textContent = "must be 16 digits";
+        card_number.style.border = "1px solid red";
+    } else {
+        errorMessage_number.textContent = "";
+        card_number.style.border = "1px solid rgb(45, 14, 45)"; // Apply default border
+    }
 }
 
-function validMonth() {
-  if (cardMonthInput.value.trim() === "") {
-    errorMessages.cardMonth.textContent = "can't be blank";
-    cardYearInput.style.border = "1px solid red";
-  } else if (cardMonthInput.value >= 1 && cardMonthInput.value <= 12) {
-    errorMessages.cardMonth.textContent = "";
-  } else {
-    errorMessages.cardMonth.textContent = "1 - 12";
-    cardYearInput.style.border = "1px solid red";
-  }
+//function for the cardmonth that with be pass in the event listener
+function cardMonth() {
+    const monthValue = card_mm.value.trim();
+    const monthInput = card_mm.value;
+    if (monthValue === "") {
+        errorMessage_month.textContent = "can't be blank";
+        card_mm.style.border = "1px solid red";
+    } else if (monthInput >= 1 && monthInput <= 12) {
+        errorMessage_month.textContent = "";
+        card_mm.style.border = "1px solid rgb(45, 14, 45";
+    } else {
+        errorMessage_month.textContent = "enter a valid month";
+        card_mm.style = "1px solid red";
+    }
 }
-//function for valid year
 
-function validYear() {
-  if (cardYearInput.value.trim() === "") {
-    errorMessages.cardYear.textContent = "can't be blank";
-    cardYearInput.style.border = "1px solid red";
-  } else if (/^\d{2}$/.test(cardYearInput.value)) {
-    errorMessages.cardYear.textContent = "";
-  } else {
-    errorMessages.cardYear.textContent = "last 2 digit";
-    cardYearInput.style.border = "1px solid red";
-  }
+function cardYear() {
+    const yearValue = card_yy.value.trim();
+
+    if (yearValue === "") {
+        errorMessage_year.textContent = "Year can't be blank";
+        card_yy.style.border = "1px solid red";
+    } else if (/^\d{2}$/.test(yearValue)) {
+        errorMessage_year.textContent = "";
+        card_yy.style.border = "1px solid rgb(45, 14, 45)"; // Apply custom border for valid input
+    } else {
+        errorMessage_year.textContent = "Please enter a valid 2-digit year";
+        card_yy.style.border = "1px solid red";
+    }
 }
-// for cvc
 
-function validCvc() {
-  if (cardCvcInput.value.trim() === "") {
-    errorMessages.cardCvc.textContent = "can't be blank";
-    cardCvcInput.style.border = "1px solid red";
-  } else if (/^\d{3}$/.test(cardCvcInput.value)) {
-    errorMessages.cardCvc.textContent = "";
-  } else {
-    errorMessages.cardCvc.textContent = "3 digit";
-    cardCvcInput.style.border = "1px solid red";
-  }
+function cardCvc() {
+    const cvcValue = card_cvc.value.trim();
+
+    if (cvcValue === "") {
+        errorMessage_cvc.textContent = "can't be blank";
+        card_cvc.style.border = "1px solid red";
+    } else if (
+        /^\d{3}$/.test(cvcValue) // Check if CVC consists of exactly 3 digits
+    ) {
+        errorMessage_cvc.textContent = "";
+        card_cvc.style.border = "1px solid rgb(45, 14, 45)";
+    } else {
+        errorMessage_cvc.textContent = "Please enter a valid CVC (3-digit number)"; // Set error message
+        card_cvc.style.border = "1px solid red"; // Invalid input style
+    }
 }
-cardNameInput.addEventListener("input", validName);
-cardNumberInput.addEventListener("input", validNumber);
-cardMonthInput.addEventListener("input", validMonth);
-cardYearInput.addEventListener("input", validYear);
-cardCvcInput.addEventListener("input", validCvc);
 
+// Attach event listener to trigger validation
+card_name.addEventListener("input", cardName);
+card_number.addEventListener("input", cardNumber);
+card_number.addEventListener("input", cardYear);
+card_mm.addEventListener("input", cardMonth);
+card_cvc.addEventListener("input", cardCvc);
 //button click addventlistener
 const submitButton = document.querySelector(".btn");
 
 function submitBtn() {
-  if (
-    cardNameInput.value.trim() === "" ||
-    cardNumberInput.value.trim() === "" ||
-    cardMonthInput.value.trim() === "" ||
-    cardYearInput.value.trim() === "" ||
-    cardCvcInput.value.trim() === ""
-  ) {
-    errorMessages.cardName.textContent = "can't be blank";
-    cardNameInput.style.border = "1px solid red";
-    errorMessages.cardNumber.textContent = "can't be blank";
-    cardNumberInput.style.border = "1px solid red";
-    errorMessages.cardMonth.textContent = "can't be blank";
-    cardYearInput.style.border = "1px solid red";
-    errorMessages.cardYear.textContent = "can't be blank";
-    cardYearInput.style.border = "1px solid red";
-    errorMessages.cardCvc.textContent = "3 digit";
-    cardCvcInput.style.border = "1px solid red";
-    errorMessages.cardMonth.textContent = "can't be blank";
-    cardYearInput.style.border = "1px solid red";
-  }
+    // Reset all error messages and borders
+    Object.values(errorMessages).forEach((errorMessage) => {
+        errorMessage.textContent = "";
+    });
+
+    // Validate each input field
+    if (cardNameInput.value.trim() === "") {
+        errorMessages.cardName.textContent = "Name can't be blank";
+        cardNameInput.style.border = "1px solid red";
+    }
+
+    if (cardNumberInput.value.trim() === "") {
+        errorMessages.cardNumber.textContent = "Number can't be blank";
+        cardNumberInput.style.border = "1px solid red";
+    }
+
+    if (cardMonthInput.value.trim() === "") {
+        errorMessages.cardMonth.textContent = "Month can't be blank";
+        cardMonthInput.style.border = "1px solid red";
+    } else if (
+        parseInt(cardMonthInput.value, 10) < 1 ||
+        parseInt(cardMonthInput.value, 10) > 12
+    ) {
+        errorMessages.cardMonth.textContent = "Enter a valid month (1 - 12)";
+        cardMonthInput.style.border = "1px solid red";
+    }
+
+    if (cardYearInput.value.trim() === "") {
+        errorMessages.cardYear.textContent = "Year can't be blank";
+        cardYearInput.style.border = "1px solid red";
+    } else if (!/^\d{2}$/.test(cardYearInput.value.trim())) {
+        errorMessages.cardYear.textContent = "Enter last 2 digits of the year";
+        cardYearInput.style.border = "1px solid red";
+    }
+
+    if (cardCvcInput.value.trim() === "") {
+        errorMessages.cardCvc.textContent = "CVC can't be blank";
+        cardCvcInput.style.border = "1px solid red";
+    } else if (!/^\d{3}$/.test(cardCvcInput.value.trim())) {
+        errorMessages.cardCvc.textContent = "Enter a valid 3-digit CVC";
+        cardCvcInput.style.border = "1px solid red";
+    }
+
+    // Check if any error messages are displayed
+    const errorValues = Object.values(errorMessages).map((errorMessage) =>
+        errorMessage.textContent.trim()
+    );
+    const hasErrors = errorValues.some((errorMessage) => errorMessage !== "");
+
+    if (!hasErrors) {
+        // If no errors, proceed to show thank_you and hide main_page
+        main_page.style.display = "none";
+        thank_you.style.display = "block";
+    }
 }
 
 submitButton.addEventListener("click", submitBtn);
