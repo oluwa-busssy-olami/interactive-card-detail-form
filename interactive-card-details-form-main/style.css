@@ -1,204 +1,201 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 :root {
-    --Lineargradient-active-input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
-    --Red-input-errors: hsl(0, 100%, 66%);
-    --White: hsl(0, 0%, 100%);
-    --Light-grayish-violet: hsl(270, 3%, 87%);
-    --Dark-grayish-violet: hsl(279, 6%, 55%);
-    --Darkviolet: hsl hsl(278, 68%, 11%);
+  --Lineargradient-active-input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --Red-input-errors: hsl(0, 100%, 66%);
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Darkviolet: hsl hsl(278, 68%, 11%);
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
-    min-width: 375px;
-    color: #fcfcfc;
-    font-size: 1.4rem;
-    background-color: var(--Light-grayish-violet);
-    font-family: "Space Grotesk", sans-serif;
+  min-width: 375px;
+  color: #fcfcfc;
+  font-size: 1.4rem;
+  background-color: var(--Light-grayish-violet);
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .banner {
-    background-image: url(images/bg-main-mobile.png);
-    width: 100%;
-    height: 200px;
-    background-repeat: no-repeat;
-    position: center;
-    background-size: cover;
-    position: relative;
+  background-image: url(images/bg-main-mobile.png);
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  position: center;
+  background-size: cover;
+  position: relative;
 }
 
 .card-front {
-    position: absolute;
-    left: 20px;
-    bottom: -70px;
-    z-index: 1;
+  position: absolute;
+  left: 20px;
+  bottom: -70px;
+  z-index: 1;
 }
 
 .card-back {
-    position: absolute;
-    left: 80px;
-    bottom: 20px;
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
 }
 
 .img-front {
-    width: 300px;
+  width: 300px;
 }
 
 .img-back {
-    width: 300px;
+  width: 300px;
 }
 
 .container {
-    display: flex;
-    max-width: 100%;
-    padding: 80px 20px 20px 20px;
+  display: flex;
+  max-width: 100%;
+  padding: 80px 20px 20px 20px;
 }
-
 
 /* .payment-form {
   margin: 0 auto;
 } */
 
 .payment-form .input {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-input {
-    gap: 10px;
-    padding: 0;
+  gap: 10px;
+  padding: 0;
 }
 
 .card-input-data {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  gap: 20px;
 }
 
 label {
-    color: rgb(45, 14, 45);
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-left: 0px;
-    padding: 0px;
+  color: rgb(45, 14, 45);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 0px;
 }
 
 .input-date,
 .card-cvc {
-    flex: 1;
+  flex: 1;
 }
 
 .input-date-section {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .input-date-section input,
 .card-cvc input {
-    flex: 1;
-    padding: 20px;
-    width: 100%;
-    margin-top: 10px;
-    gap: 20px;
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  margin-top: 10px;
+  gap: 20px;
 }
 
 .btn {
-    background-color: rgb(57, 18, 57);
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    color: var(--White);
-    margin-top: 20px;
-    outline: none;
+  background-color: rgb(57, 18, 57);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--White);
+  margin-top: 20px;
+  outline: none;
 }
 
 .card-cvc label {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 input {
-    outline: none;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid var(--Light-grayish-violet);
-    box-shadow: rgba(0, 0, 0, 0.24) 1px 0px 5px 0px;
-    color: rgb(45, 14, 45);
-    font-size: 0.8rem;
+  outline: none;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--Light-grayish-violet);
+  box-shadow: rgba(0, 0, 0, 0.24) 1px 0px 5px 0px;
+  color: rgb(45, 14, 45);
+  font-size: 0.8rem;
 }
 
 input:focus {
-    border: 1px solid rgb(96, 12, 96);
+  border: 1px solid rgb(96, 12, 96);
 }
 
 .errorMessage {
-    font-size: 0.6rem;
-    color: var(--Red-input-errors);
-    margin-top: 0;
+  font-size: 0.6rem;
+  color: var(--Red-input-errors);
+  margin-top: 0;
 }
 
 .errorMessage-month {
-    display: block;
+  display: block;
 }
-
 
 /* thank you */
 
 .thank-you {
-    display: flex;
-    /* width: 375px; */
-    max-width: 100%;
-    flex-direction: column;
-    padding: 80px 0px 20px 0px;
+  display: flex;
+  width: 405px;
+  max-width: 100%;
+  flex-direction: column;
+  padding: 80px 0px 20px 0px;
 }
 
 .thanks-added {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
 }
 
 .mark {
-    width: 80px;
-    margin-bottom: 30px;
+  width: 80px;
+  margin-bottom: 30px;
 }
 
 .thank-text {
-    letter-spacing: 1.2px;
-    font-size: 1.5rem;
-    color: rgb(45, 14, 45);
-    margin-bottom: 15px;
+  letter-spacing: 1.2px;
+  font-size: 1.5rem;
+  color: rgb(45, 14, 45);
+  margin-bottom: 15px;
 }
 
 .thanks-para {
-    color: var(--Dark-grayish-violet);
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+  color: var(--Dark-grayish-violet);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
 }
 
 .continue {
-    background-color: rgb(57, 18, 57);
-    padding: 20px;
-    width: 90%;
-    text-align: center;
-    border-radius: 10px;
-    color: var(--White);
-    outline: none;
-    margin: 0 20px;
+  background-color: rgb(57, 18, 57);
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--White);
+  outline: none;
+  margin: 0 20px;
 }
 
-
-/* .hidden {
+.hidden {
   display: none;
-} */
+}
