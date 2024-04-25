@@ -67,7 +67,7 @@ function cardMonth() {
 }
 
 function cardYear() {
-  const yearValue = card_yy.value.trim();
+  const yearValue = cardYearInput.value.trim();
 
   if (yearValue === "") {
     errorMessages.cardYear.textContent = "blank";
