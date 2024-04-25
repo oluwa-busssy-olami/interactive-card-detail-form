@@ -21,7 +21,7 @@ function cardName() {
   let namePattern = /^[A-Za-z]+(\s[A-Za-z]+)*$/;
 
   if (cardNameInput.value.trim() === "") {
-    errorMessages.cardName.textContent = "can't be blasnk";
+    errorMessages.cardName.textContent = "can't be blank";
     card_name.style.border = "1px solid red";
   } else if (cardNameInput.Value.match(namePattern)) {
     errorMessages.cardName.textContent = "Enter a valid username";
@@ -56,13 +56,13 @@ function cardMonth() {
   const monthValue = cardMonthInput.value.trim();
   const monthInput = cardMonthInput.value;
   if (monthValue === "") {
-    errorMessages.cardMonth.textContent = "can't be blank";
+    errorMessages.cardMonth.textContent = "blank";
     cardMonthInput.style.border = "1px solid red";
   } else if (monthInput >= 1 && monthInput <= 12) {
     errorMessages.cardMonth.textContent = "";
     cardMonthInput.style.border = "1px solid rgb(45, 14, 45";
   } else {
-    errorMessages.cardMonth.textContent = "enter a valid month";
+    errorMessages.cardMonth.textContent = "(1-12)";
     cardMonthInput.style = "1px solid red";
   }
 }
@@ -71,13 +71,13 @@ function cardYear() {
   const yearValue = card_yy.value.trim();
 
   if (yearValue === "") {
-    errorMessages.cardYear.textContent = "Year can't be blank";
+    errorMessages.cardYear.textContent = "blank";
     cardYearInput.style.border = "1px solid red";
   } else if (/^\d{2}$/.test(yearValue)) {
     errorMessages.cardYear.textContent = "";
     cardYearInput.style.border = "1px solid rgb(45, 14, 45)"; // Apply custom border for valid input
   } else {
-    errorMessages.cardYear.textContent = "Please enter a valid 2-digit year";
+    errorMessages.cardYear.textContent = "10-99";
     cardYearInput.style.border = "1px solid red";
   }
 }
@@ -114,6 +114,7 @@ const thank_you = document.querySelector(".thank-you");
 const main_page = document.querySelector(".main-page");
 
 submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
   if (
     cardNameInput.value.trim() === "" ||
     cardMonthInput.value.trim() === "" ||
@@ -136,7 +137,8 @@ submitButton.addEventListener("click", (e) => {
     thank_you.style.display = "block";
   }
 });
-// back_to_form.addEventListener("click", (e) => {
-//   main_page.style.display = "block";
-//   thank_you.style.display = "none";
-// });
+back_to_form.addEventListener("click", (e) => {
+  e.preventDefault();
+  main_page.style.display = "block";
+  thank_you.style.display = "none";
+});

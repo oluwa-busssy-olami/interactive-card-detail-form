@@ -146,7 +146,7 @@ input:focus {
 }
 
 .errorMessage-month {
-  display: block;
+  /* display: block; */
 }
 
 /* thank you */
