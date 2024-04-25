@@ -22,10 +22,9 @@ function cardName() {
 
   if (cardNameInput.value.trim() === "") {
     errorMessages.cardName.textContent = "can't be blank";
-    card_name.style.border = "1px solid red";
+    cardNameInput.style.border = "1px solid red";
   } else if (cardNameInput.Value.match(namePattern)) {
     errorMessages.cardName.textContent = "Enter a valid username";
-    cardNameInput.style.border = "1px solid red";
   } else {
     errorMessages.cardName.textContent = "";
     cardNameInput.style.border = "1px solid rgb(45, 14, 45)"; // Reset border to default
@@ -137,8 +136,9 @@ submitButton.addEventListener("click", (e) => {
     thank_you.style.display = "block";
   }
 });
-back_to_form.addEventListener("click", (e) => {
-  e.preventDefault();
-  main_page.style.display = "block";
-  thank_you.style.display = "none";
-});
+
+cardNameInput.value = "";
+cardYearInput.value = "";
+cardMonthInput.value = "";
+cardCvcInput.value = "";
+cardNumberInput.value = "";
