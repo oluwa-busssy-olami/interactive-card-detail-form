@@ -4,7 +4,7 @@
   --Red-input-errors: hsl(0, 100%, 66%);
   --White: hsl(0, 0%, 100%);
   --Light-grayish-violet: hsl(270, 3%, 87%);
-  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Dark-grayish-violet: hsl(278, 7%, 43%);
   --Darkviolet: hsl hsl(278, 68%, 11%);
 }
 
@@ -118,6 +118,7 @@ label {
   color: var(--White);
   margin-top: 20px;
   outline: none;
+  cursor: pointer;
 }
 
 .card-cvc label {
@@ -194,6 +195,7 @@ input:focus {
   color: var(--White);
   outline: none;
   margin: 0 20px;
+  cursor: pointer;
 }
 
 .hidden {
